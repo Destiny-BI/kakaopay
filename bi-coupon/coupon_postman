@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "6f38dd81-0674-4a3a-b9b9-035919673e91",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "spzcho87@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "BI",
+							"type": "text"
+						},
+						{
+							"key": "isAdmin",
+							"value": "true",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "spzcho87@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"signin"
+					]
+				},
+				"description": "로그인"
+			},
+			"response": []
+		},
+		{
+			"name": "findAllUser",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9VU0VSIl0sImlhdCI6MTU4ODM5NDY1MiwiZXhwIjoxNTg4Mzk4MjUyfQ.W7xqixhnAz7AbGHThJ_nKeNWIgvtnfvnCu8PgdK1i_Y",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/user/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"user",
+						"users"
+					]
+				},
+				"description": "전체 유저 조회"
+			},
+			"response": []
+		},
+		{
+			"name": "generateCoupon",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1ODg2NzkxMTcsImV4cCI6MTU4ODY4MjcxN30._Vabujpj0N8PZWTLn29HVjP7ndvkR6I0GBBfX2_TwXY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "count",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "couponNm",
+							"value": "병일쿠폰",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "expireDt",
+							"value": "20200505",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/management/coupon/creation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"management",
+						"coupon",
+						"creation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paymentCoupon",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1ODg2NzkxMTcsImV4cCI6MTU4ODY4MjcxN30._Vabujpj0N8PZWTLn29HVjP7ndvkR6I0GBBfX2_TwXY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userId",
+							"value": "spzcho87@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/management/coupon/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"management",
+						"coupon",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paidCouponList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1ODg2Nzc4ODAsImV4cCI6MTU4ODY4MTQ4MH0.HxAZsbBm0spwURAPfXgxUEQU7oO0IMx0r__lO2QZlSY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userId",
+							"value": "spzcho87@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/management/coupon/information/payment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"management",
+						"coupon",
+						"information",
+						"payment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "useCoupon",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1ODg2NTA0MjcsImV4cCI6MTU4ODY1NDAyN30.XxNgBn3x0wjEqLDsU8dLJe52Zf67fuHpkuXon_hD5Lw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "couponNbr",
+							"value": "42a1d4b1-47d5-4c27-8272-3edf63ca6a50",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/management/coupon/use",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"management",
+						"coupon",
+						"use"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cancelCoupon",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1ODg2NDQ5ODYsImV4cCI6MTU4ODY0ODU4Nn0.3B7purTlnf3P4VB54_ZJxQYXhQoeupWrni6EBT6Vuok",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "couponNbr",
+							"value": "42a1d4b1-47d5-4c27-8272-3edf63ca6a50",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/management/coupon/use-cancellation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"management",
+						"coupon",
+						"use-cancellation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getExpiredCoupons",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-AUTH-TOKEN",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJpYXQiOjE1ODg2NDQ5ODYsImV4cCI6MTU4ODY0ODU4Nn0.3B7purTlnf3P4VB54_ZJxQYXhQoeupWrni6EBT6Vuok",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "today",
+							"value": "20200606",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/bicoupon/management/coupon/information/expiration",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"bicoupon",
+						"management",
+						"coupon",
+						"information",
+						"expiration"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
